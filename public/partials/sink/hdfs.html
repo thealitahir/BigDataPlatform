@@ -1,0 +1,22 @@
+<div>
+    <form role="form" novalidate>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name..." ng-model="hdfsSink.name">
+        </div>
+        <div class="form-group">
+            <label for="host">Host</label>
+            <input type="text" class="form-control" id="host" placeholder="Host..." ng-model="hdfsSink.stage_attributes.host">
+        </div>
+        <div class="form-group">
+            <label for="port">Port</label>
+            <input type="text" class="form-control" id="port" placeholder="Port..." ng-model="hdfsSink.stage_attributes.port">
+        </div>
+        <div class="form-group">
+            <label for="path">Path</label>
+            <input type="text" class="form-control" id="path" placeholder="Path..." ng-model="hdfsSink.stage_attributes.path">
+        </div>
+        <input type="submit" ng-click="update()" value="Save" />
+    </form>
+</div>
+

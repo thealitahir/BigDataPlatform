@@ -1,0 +1,22 @@
+<div>
+    <form role="form" novalidate>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name..." ng-model="s3Sink.name">
+        </div>
+        <div class="form-group">
+            <label for="host">Access Key</label>
+            <input type="text" class="form-control" id="host" placeholder="Host..." ng-model="s3Sink.stage_attributes.host">
+        </div>
+        <div class="form-group">
+            <label for="port">Access Secret</label>
+            <input type="text" class="form-control" id="port" placeholder="Port..." ng-model="s3Sink.stage_attributes.port">
+        </div>
+        <div class="form-group">
+            <label for="path">Bucket</label>
+            <input type="text" class="form-control" id="path" placeholder="Path..." ng-model="s3Sink.stage_attributes.path">
+        </div>
+        <input type="submit" ng-click="update()" value="Save" />
+    </form>
+</div>
+

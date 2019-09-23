@@ -1,0 +1,66 @@
+<style>
+    .stage-icons {
+        position: absolute;
+        z-index: 2;
+    }
+    .stage-icons .icon{
+        pointer-events: none;
+        -webkit-user-select: none;
+        font-size: 40px;
+        box-sizing: border-box;
+    }
+    .stage-icons .stage-icon-remove {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        left: -15px;
+    }
+    .stage-icons .icon{
+        top: 25px
+    }
+
+    .link-on{
+        color:blue;
+        border: 2px solid blue;
+    }
+
+</style>
+
+<div>
+
+    <div class="row">
+        <input type="button" value="File" ng-click="add('source','file')"/>
+        <input type="button" value="HDFS" ng-click="add('source','hdfs')"/>
+
+        <input type="button" value="S3" ng-click="add('source','s3')"/>
+
+        <input type="button" value="/" ng-click="toggleLink()" ng-class="{'link-on': linkProps.isOn}"/>
+        <input type="button" value="HDFS Sink" ng-click="add('sink','hdfs')"/>
+        <input type="button" value="S3 Sink" ng-click="add('sink','s3')"/>
+        <input type="button" value="HBASE Sink" ng-click="add('sink','hbase')"/>
+        <input type="button" value="Transformation" ng-click="add('transformation','transformation')"/>
+<!--
+        <input type="button" value="analyticsModel" ng-click="add('analyticsModel','model')"/>
+-->
+        <input type="button" value="analyticsTest" ng-click="add('analytics','testing')"/>
+
+        <input type="button" value="Publish"/>
+    </div>
+
+    <div class="row">
+        <div id="pipeline" class="pipeline">
+
+        </div>
+    </div>
+
+    <div class="col-right properties-window" ui-view="properties">
+
+        <div class="right-side-title">Properties Window</div>
+
+        <div class="right-col-container">
+            <h1>Properties Window</h1>
+        </div>
+
+    </div>
+
+</div>

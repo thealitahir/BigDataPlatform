@@ -1,0 +1,63 @@
+
+<form role="form" novalidate ng-submit="getFiles()" name="s3Form">
+
+
+    <div class="form-group">
+        <label for="name" >Name</label>
+        <input type="text" ng-model="s3DataSource.name" class="form-control" id="name"  required>
+
+    </div>
+    <div class="form-group">
+        <label for="accessKey">Access key</label>
+        <input type="text" class="form-control" id="accessKey" ng-model="s3DataSource.stage_attributes.accessKey" placeholder="">
+        <alert class="alert-danger" type="{{alert.type}}"> {{ alert.msg }}</alert>
+    </div>
+    <div class="form-group">
+        <label for="secretKey">Access secret</label>
+        <input type="password" class="form-control" id="secretKey" ng-model="s3DataSource.stage_attributes.secretKey" placeholder="">
+        <alert class="alert-danger" type="{{alert.type}}"> {{ alert.msg }}</alert>
+    </div>
+    <div class="form-group">
+        <label for="bucket">Bucket</label>
+        <input type="text" class="form-control" id="bucket" ng-model="s3DataSource.stage_attributes.bucket" name="buck" placeholder="">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Get Files</button>
+        <button type="button" class="btn btn-default" ng-click="update()">Save</button>
+    </div>
+</form>
+
+
+<div>
+    <div class="col-sm-12 col-sm-offset-0">
+        <button class="btn btn-primary " ng-click="goBack()" ng-show="activeExplorer">BACK</button>
+        {{s3.breadcrums}}
+    </div>
+    <div class="padding" style=" padding-top: 25px;padding-bottom: 25px;">
+        <div class="col-md-2"   ng-repeat="item in s3.exploreDirectory"  style="text-align: center;overflow:hidden;" ng-class="CheckUncheckIndex(s3.breadcrums+'/'+item) ? 'active' : 'blue'"
+             ng-click="itemClicked()" style="text-align: center;">
+            <div ng-if="files.indexOf(item)>-1" ng-click="explore(item )">
+                <span  class=" blue glyphicon glyphicon-list-alt" style="font-size: 50px;padding: 10px; "></span>
+                <span  style="white-space: nowrap;overflow: hidden;">{{item}}</span>
+
+            </div>
+            <div ng-if="files.indexOf(item)==-1" ng-click="explore(item)">
+                <span  class=" blue glyphicon glyphicon-folder-close" style="font-size: 50px;padding: 10px; "></span>
+                <span  style="white-space: nowrap;overflow: hidden;">{{item}}</span></div>
+        </div>
+    </div>
+    <li ng-repeat="item in s3DataSource.stage_attributes.files" title="{{item.path}}" >
+            <span class="glyphicon glyphicon-list-alt" style="font-size: 20px;padding: 10px;">
+            {{abc=item.name}}
+            <div ng-click="crossMarkedFile(item.path)" class=" blue glyphicon glyphicon-remove" style="font-size: 20px;padding: 10px; ">
+            </div>
+            </span>
+    </li>
+    </ul>
+</div>
+
+
+
+
+
+

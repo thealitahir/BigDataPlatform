@@ -1,0 +1,54 @@
+<div>
+    <form role="form" novalidate>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name..." ng-model="hbaseSink.name">
+        </div>
+
+        <div class="form-group">
+            <label for="ZooKeeperQourum">ZooKeeper Qourum</label>
+            <input type="text" class="form-control" id="ZooKeeperQourum" ng-model="hbaseSink.stage_attributes.zooKeeperQourum" placeholder="ZooKeeper Qourum...">
+        </div>
+
+        <div class="form-group">
+            <label for="zooKeeperPort">zooKeeper Port</label>
+            <input type="text" class="form-control" id="zooKeeperPort" ng-model="hbaseSink.stage_attributes.zooKeeperPort" placeholder="zooKeeper Port...">
+        </div>
+
+        <div class="form-group">
+            <label for="tableName">Table Name</label>
+            <input type="text" class="form-control" id="tableName" ng-model="hbaseSink.stage_attributes.tableName" placeholder="Table Name...">
+        </div>
+
+        <div class="form-group">
+            <label for="columnFamily">Column Family</label>
+            <input type="text" class="form-control" id="columnFamily" ng-model="hbaseSink.stage_attributes.columnFamily" placeholder="Column Family...">
+        </div>
+
+        <div class="form-group">
+            <label>Row Key</label>
+            <select class="form-control" ng-model="hbaseSink.stage_attributes.rowKey" multiple ng-options="row.field as row.field for row in stages[0].selectedSchema"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateTimeFormat">Date Time Format
+                <input type="text" class="form-control" id="dateTimeFormat" ng-model="hbaseSink.stage_attributes.dateTimeFormat" placeholder="Date Time Format...">
+            </label>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id = "isFlat" ng-model="hbaseSink.stage_attributes.isFlat">Is Flat
+        </div>
+
+        <div ng-if="hbaseSink.stage_attributes.isFlat == true">
+            <div class="form-group">
+                <label for="granularity">Granularity
+                    <input type="text" class="form-control" id="granularity" ng-model="hbaseSink.stage_attributes.granularity" placeholder="Granularity in Minutes...">
+                </label>
+            </div>
+        </div>
+        <input type="submit" ng-click="update()" value="Save" />
+
+    </form>
+</div>
+

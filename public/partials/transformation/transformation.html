@@ -1,0 +1,36 @@
+<div class="transformation-heading" id="formHeading">
+
+    <div><alert class="alert-danger" type="{{alert.type}}"> {{ alert.msg }}</alert></div>
+    <div class="form-group">
+        <label for="stage_name">Name<small  style="color: red"> *</small></label>
+        <input type="text" class="form-control" id="stage_name" ng-model="transformationSource.name" required>
+    </div>
+
+    <select class="form-control" ng-model="transformationSource.stage_attributes.type" ng-change="transformationSelected()">
+        <option value="" disabled selected style='display:none;'>Select Transformation</option>
+        <option  value="Encryption">Encryption</option>
+        <option  value="Filter">Filter</option>
+        <option  value="Formula">Formula</option>
+        <option  value="Split">Split</option>
+        <option  value="Compression">Compression</option>
+        <option  value="Currency">Currency</option>
+        <option  value="Minimum">Minimum</option>
+        <option  value="Maximum">Maximum</option>
+        <option  value="Sum">Sum</option>
+        <option  value="Regular Expression">Regular Expression</option>
+        <option  value="Find & Replace">Find & Replace</option>
+        <option  value="Merge">Merge</option>
+    </select>
+
+    <!--    <div ng-include="Transformation.stage_attributes.type"> </div>
+        <div class="form-group col-md-6" ng-show="previewButton">
+            <input type="button" value="Preview">
+        </div>-->
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-left">
+
+        <div class="col-left-expander">
+            <span class="glyphicons glyphicons-chevron-left"></span>
+        </div>
+
+        <div class="left-side-title hide">
+            Application List
+        </div>
+
+        <div class="left-col-container">
+
+            <div class="box-header">Application List
+                <!--<span class="glyphicon glyphicon-plus-sign" ng-click="addApplication()" style="font-size: 20px;color: #000000; position: relative; top:5px; left: 5px; cursor:pointer;"></span>-->
+                <input type="button" ng-click="addApplication()" value="add"/>
+            </div>
+
+            <div
+                    data-angular-treeview="true"
+                    data-tree-id="abc"
+                    data-tree-model="applicationsWithDetails"
+                    data-node-id="id"
+                    data-node-name="name"
+                    data-node-children="children"
+                    data-node-app_id="app_id"
+                    data-node-type="type" >
+            </div>
+            <div class="modal fade" id="addApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog large-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            New Application
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style=" padding-right:25px;padding-left: 25px;">
+                                <div class="form-group  " style="padding-bottom: 50px;">
+                                    <div class="col-sm-12 col-sm-offset-0">
+                                        <label for="app">Application Name </label>
+                                        <input type="text" id="app" ng-model="treedataObject.label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button ng-click="saveName()">save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-container">
+        <div ui-view>
+            Designer
+        </div>
+    </div>
+    <!--<div class="col-md-2">
+        <div ui-view="chat">
+            Chat
+        </div>
+    </div>-->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".col-left-expander").click(function(){
+
+            if ($(".col-left").hasClass("col-left-minimize")){
+                $(".col-left").removeClass("col-left-minimize");
+                $(".col-left-expander .glyphicons").removeClass("glyphicons-chevron-right").addClass("glyphicons-chevron-left");
+
+                $(".col-left").stop().animate({width:"250px"},300,function() {
+                            $(".left-col-container").removeClass("hide");
+                            $(".left-side-title").addClass("hide");
+                        }
+                )
+
+
+            } else {
+                $(".left-col-container").addClass("hide");
+                $(".col-left-expander .glyphicons").removeClass("glyphicons-chevron-left").addClass("glyphicons-chevron-right");
+                $(".left-side-title").removeClass("hide");
+                $(".col-left").addClass("col-left-minimize");
+                $(".col-left").stop().animate({width:"36px"},300);
+
+
+            }
+
+
+        })
+    })
+</script>

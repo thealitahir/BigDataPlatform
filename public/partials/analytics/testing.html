@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="analyticsTestingSource.stage_name" class="form-control" required>
+</div>
+<div ng-show="analyticsTestingSource.stage_attributes.showModel" class="form-group">
+    <h5>Trained Models:</h5>
+    <select id="model" ng-model="analyticsTestingSource.stage_attributes.showSelectedModel" class="form-control" ng-options="model.name as model.name for model in TrainedModels" >
+        <option value="">Select model</option>
+    </select>
+</div>
+<div class="form-group">
+    <h5>Category: </h5>
+    <select id="category" ng-model="analyticsTestingSource.stage_attributes.selectedCategory" class="form-control" ng-options="category for category in algorithm_categories_list" ng-change="getAlgorithmsList()">
+        <option value="">Select Category</option>
+    </select>
+</div>
+<div class="form-group" >
+    <h5>Algorithm:</h5>
+    <select id="algorithm" ng-model="analyticsTestingSource.stage_attributes.selectedAlgorithm" class="form-control" ng-options="list.name as list.name for list in analyticsTestingSource.stage_attributes.algorithm" ng-change="getFields()" >
+        <option value="">Select algorithm</option>
+    </select>
+</div>
+
+<button class="btn pull-right" id="save" ng-click="Save()">Save</button>
